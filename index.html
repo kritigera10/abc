@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galentine's Invite</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        body {
+            background: url('https://i.pinimg.com/736x/90/aa/51/90aa51e23ee9f8d43cf6f5e306d0bb2f.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #d63384;
+            overflow: hidden; /* Prevent scrolling */
+            position: relative;
+        }
+        .container {
+            background: rgba(255, 228, 235, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10; /* Lower z-index for the container */
+            position: relative; /* Ensure proper stacking */
+        }
+        .btn {
+            background: #ffafcc;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ff8fab;
+            transform: scale(1.1);
+        }
+        .no-btn {
+            position: relative;
+        }
+        .popup-message {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: url('https://marketplace.canva.com/EAFnBwSt0XU/1/0/1236w/canva-tan-vintage-stationery-journal-blank-page-border-notepaper-us-letter-hf0-7gKZkNs.jpg') no-repeat center/cover;
+            padding: 4vw 6vw;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99999; /* Higher z-index for the pop-up message */
+            color: #4e4e4e; /* Adjust text color to ensure visibility */
+            font-size: 1.5vw; /* Responsive font size */
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            line-height: 1.4; /* Adjust line-height for better readability */
+            max-height: 50vh; /* Set max height to make the popup scrollable */
+            overflow-y: auto; /* Enable scrolling when content exceeds max-height */
+            font-weight: bold;
+            transform: translateX(-50%);
+        }
+
+        /* Remove the scrollbar itself */
+        .popup-message::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+        .popup-message {
+            -ms-overflow-style: none;  /* For Internet Explorer */
+            scrollbar-width: none; /* For Firefox */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey! 💖</h1>
+        <p>Will you be my Galentine? 🌸</p>
+        <button class="btn" onclick="showLetter()">Yes</button>
+        <button class="btn no-btn" id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+
+    <script>
+        // Function to trigger the "Yes" button effect
+        function showLetter() {
+            // Create the celebratory message with custom text and emojis
+            let letter = document.createElement('div');
+            letter.classList.add('popup-message');
+            letter.innerHTML = `  
+                <p>Hey Diti!✨💖</p>
+                <p>I love you so much 😘💕!!</p>
+                <p>You deserve every bit of the prettiest things in the world 🌸🌺✨..</p>
+                <p>You are such an important part of my life 🌈💖..</p>
+                <p>It doesn't even feel that we have been together for so many years ⏳💑..</p>
+                <p>You are my safe person, my comfort zone, my go-to problem solver, and the person I can rely on in any situation 🛋️💪💞..</p>
+                <p>With you, things just fall into the right place, and I don't need to put in extra efforts 💖🌟..</p>
+                <p>You should know that I’ll always be there for you in your good and especially in your bad times 🌻❤️</p>
+                <p>Vaise, I am eagerly waiting for you to have a boyfriend so that I get to hear a lot of gossips from you 😜💬👀...</p>
+                <p>I’m sorry, I’m very bad at writing these things 😅 but I love you a lottttt 💕💕 and alsoooooooooooo...</p>
+                <p>Happy Galentine's Day! 🎉💖💝</p>
+            `;
+            document.body.appendChild(letter);
+        }
+
+        // Function to move "No" button when hovered
+        function moveButton() {
+            let btn = document.getElementById("noBtn");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = "absolute";
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
+        }
+    </script>
+</body>
+</html>
